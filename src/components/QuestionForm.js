@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function QuestionForm(props) {
+const QuestionForm = (props) => {
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
@@ -10,17 +10,15 @@ function QuestionForm(props) {
     correctIndex: 0,
   });
 
-  function handleChange(event) {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  }
+  const handleChange = (e) => {
+    const [name, value] = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(formData);
-  }
+  };
 
   return (
     <section>
@@ -88,6 +86,6 @@ function QuestionForm(props) {
       </form>
     </section>
   );
-}
+};
 
 export default QuestionForm;

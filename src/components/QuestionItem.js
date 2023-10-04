@@ -1,6 +1,4 @@
-import React from "react";
-
-function QuestionItem({ question }) {
+const QuestionItem = ({ question }) => {
   const { id, prompt, answers, correctIndex } = question;
 
   const options = answers.map((answer, index) => (
@@ -20,6 +18,6 @@ function QuestionItem({ question }) {
       <button>Delete Question</button>
     </li>
   );
-}
+};
 
 export default QuestionItem;

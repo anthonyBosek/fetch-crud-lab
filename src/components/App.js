@@ -3,7 +3,7 @@ import AdminNavBar from "./AdminNavBar";
 import QuestionForm from "./QuestionForm";
 import QuestionList from "./QuestionList";
 
-function App() {
+const App = () => {
   const [page, setPage] = useState("List");
 
   return (
@@ -12,6 +12,6 @@ function App() {
       {page === "Form" ? <QuestionForm /> : <QuestionList />}
     </main>
   );
-}
+};
 
 export default App;
