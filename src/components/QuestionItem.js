@@ -1,4 +1,4 @@
-const QuestionItem = ({ question }) => {
+const QuestionItem = ({ question, handleDelete, handleChange }) => {
   const { id, prompt, answers, correctIndex } = question;
 
   const options = answers.map((answer, index) => (
@@ -13,9 +13,14 @@ const QuestionItem = ({ question }) => {
       <h5>Prompt: {prompt}</h5>
       <label>
         Correct Answer:
-        <select defaultValue={correctIndex}>{options}</select>
+        <select
+          defaultValue={correctIndex}
+          onChange={(e) => handleChange(e, id)}
+        >
+          {options}
+        </select>
       </label>
-      <button>Delete Question</button>
+      <button onClick={() => handleDelete(id)}>Delete Question</button>
     </li>
   );
 };
